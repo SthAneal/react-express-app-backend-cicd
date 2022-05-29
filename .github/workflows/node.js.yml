@@ -28,3 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: pm2 restart Backend
+    - run: sudo service nginx restart 
