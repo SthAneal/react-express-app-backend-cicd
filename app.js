@@ -17,5 +17,5 @@ app.get('/dashboard', (req, res)=>{
 });
 
 app.listen(3000, ()=>{
-    console.log('server is running on port 5000');
+    console.log('server is running on port 3000');
 });
