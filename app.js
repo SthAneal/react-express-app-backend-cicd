@@ -9,7 +9,7 @@ app.get('/api', (req, res)=>{
 });
 
 app.get('/api/home', (req, res)=>{
-    res.send('home route').status(201);
+    res.send('home user').status(201);
 });
 
 app.get('/api/dashboard', (req, res)=>{
