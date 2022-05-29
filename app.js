@@ -8,14 +8,14 @@ app.get('/api', (req, res)=>{
     res.json({msg:'default user', status:200});
 });
 
-app.get('/api/home', (req, res)=>{
+app.get('/api/login', (req, res)=>{
     // res.send('home user').status(200);
-    res.json({msg:'home user', status:200});
+    res.json({msg:'login route', status:200});
 });
 
-app.get('/api/dashboard', (req, res)=>{
+app.get('/api/register', (req, res)=>{
     // res.send('dashboard route').status(200);
-    res.json({msg:'dashboard user', status:200});
+    res.json({msg:'register route', status:200});
 });
 
 app.listen(3000, ()=>{
