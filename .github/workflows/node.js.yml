@@ -29,4 +29,3 @@ jobs:
     - run: |
         npm i
         pm2 restart Backend
-        sudo service nginx restart 
