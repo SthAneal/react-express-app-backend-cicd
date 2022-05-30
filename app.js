@@ -15,7 +15,7 @@ app.get('/api/login', (req, res)=>{
 
 app.get('/api/register', (req, res)=>{
     // res.send('dashboard route').status(200);
-    res.json({msg:'register route', status:200});
+    res.json({msg:'register routes', status:200});
 });
 
 app.listen(3000, ()=>{
