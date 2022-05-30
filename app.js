@@ -10,7 +10,7 @@ app.get('/api', (req, res)=>{
 
 app.get('/api/login', (req, res)=>{
     // res.send('home user').status(200);
-    res.json({msg:'login route', status:200});
+    res.json({msg:'login routes', status:200});
 });
 
 app.get('/api/register', (req, res)=>{
