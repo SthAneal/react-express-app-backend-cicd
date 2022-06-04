@@ -20,7 +20,7 @@ app.get('/api/register', (req, res)=>{
     res.json({msg:'register routes', status:200});
 });
 
-app.get('/api/woolie', async (req, res)=>{
+app.get('/api/woolie',  (req, res)=>{
     // res.send('dashboard route').status(200);
     // res.json({msg:'register routes', status:200});
 
@@ -31,7 +31,7 @@ app.get('/api/woolie', async (req, res)=>{
 
 });
 
-app.get('/api/coles', async (req, res)=>{
+app.get('/api/coles',  (req, res)=>{
     // res.send('dashboard route').status(200);
     // res.json({msg:'register routes', status:200});
 
