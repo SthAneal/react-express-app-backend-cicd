@@ -24,10 +24,10 @@ app.get('/api/woolie',  (req, res)=>{
     // res.send('dashboard route').status(200);
     // res.json({msg:'register routes', status:200});
 
-    // const product = await axios.get('https://www.woolworths.com.au/apis/ui/Search/products?searchTerm="salt"');
-    // res.json({single:product.data.Products[0].Products[0], status:200});
+    const product = await axios.get('https://www.woolworths.com.au/apis/ui/Search/products?searchTerm="salt"');
+    res.json({single:product.data.Products[0].Products[0], status:200});
 
-    res.json({msg:'woolie routes', status:200});
+    // res.json({msg:'woolie routes', status:200});
 
 });
 
@@ -35,10 +35,10 @@ app.get('/api/coles',  (req, res)=>{
     // res.send('dashboard route').status(200);
     // res.json({msg:'register routes', status:200});
 
-    // const product = await axios.get('https://shop.coles.com.au/search/resources/store/20601/productview/bySearchTerm/salt?');
-    // res.json({single:product.data.catalogEntryView[0], status:200});
+    const product = await axios.get('https://shop.coles.com.au/search/resources/store/20601/productview/bySearchTerm/salt?');
+    res.json({single:product.data.catalogEntryView[0], status:200});
 
-    res.json({msg:'coles routes', status:200});
+    // res.json({msg:'coles routes', status:200});
 
 });
 
