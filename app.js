@@ -21,24 +21,71 @@ app.get('/api/register', (req, res)=>{
 });
 
 app.get('/api/woolie',  async (req, res)=>{
-    // res.send('dashboard route').status(200);
-    // res.json({msg:'register routes', status:200});
+    const product = await axios.get(`https://www.woolworths.com.au/apis/ui/Search/products?searchTerm="${req.query.value}"`);
+    const result = product.data.Products;
+    
+    let items = result.map((item)=>{
+        return({
+            name:item.Products[0].DisplayName, 
+            description:item.Products[0].Description,
+            price:item.Products[0].Price,
+            // image:item.Products[0].DetailsImagePaths
+            image:item.Products[0].MediumImageFile
+        })
+    })
 
-    const product = await axios.get('https://www.woolworths.com.au/apis/ui/Search/products?searchTerm="salt"');
-    res.json({single:product.data.Products[0].Products[0], status:200});
+    res.json({
+        items,
+        status:200
+    });
+    
+    // console.log({single:product.data.Products[0].Products[0], status:200});
+    // const result = product.data.Products[1].Products;
+    //console.log(result); // good for checking available result set
 
-    // res.json({msg:'woolie routes', status:200});
+    // let items = [];
 
+    // res.json({
+    //     name:product.data.Products[0].Products[0].DisplayName, 
+    //     description:product.data.Products[0].Products[0].Description,
+    //     price:product.data.Products[0].Products[0].Price,
+    //     status:200
+    // });
 });
 
 app.get('/api/coles',  async (req, res)=>{
     // res.send('dashboard route').status(200);
     // res.json({msg:'register routes', status:200});
 
-    const product = await axios.get('https://shop.coles.com.au/search/resources/store/20601/productview/bySearchTerm/salt?');
-    res.json({single:product.data.catalogEntryView[0], status:200});
-
     // res.json({msg:'coles routes', status:200});
+    const product = await axios.get(`https://shop.coles.com.au/search/resources/store/20601/productview/bySearchTerm/${req.query.value}?`);
+    const result = product.data.catalogEntryView;
+    
+    console.log(JSON.stringify(result[1])+'\n');
+    console.log(JSON.stringify(result[2])+'\n');
+    console.log(JSON.stringify(result[3])+'\n');
+    console.log(JSON.stringify(result[5]));
+
+
+
+    
+    let items = result.map((item)=>{
+        return({
+            name:item.n, 
+            description:item.s,
+            price:item.u2,
+            isSpecial:item.pt?true:false,
+            image:item.t? `https://shop.coles.com.au${item.t}`:''
+        })
+    });
+
+    // console.log(items[0]);
+
+
+    res.json({
+        items,
+        status:200
+    });
 
 });
 
